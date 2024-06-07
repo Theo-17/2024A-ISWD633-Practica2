@@ -17,9 +17,9 @@ No puedes mapear puertos a un contenedor existente directamente después de su c
 ### Crear contenedor de Jenkins puertos contenedor: 8080 (interface web) y 50000 (comunicación entre nodos) imagen: jenkins/jenkins:alpine3.18-jdk11
 docker run -d --name jenkins_container --publish published=8080,target=8080 --publish published=50000,target=50000 jenkins/jenkins:alpine3.18-jdk11
 
-![Imagen](imagenes/1.1 jenkins container.jpeg)
+![Imagen](imagenes/1.1jenkins-container.jpeg)
 
-![Imagen](imagenes/1.2 jenkins lock.jpeg)
+![Imagen](imagenes/1.2jenkins-lock.jpeg)
 
 
 ### ¿Cómo obtener la contraseña solicitada?
@@ -43,7 +43,7 @@ El argumento -l junto al comando ls sirve para mostrar una lista detallada del c
 ### Usar el contenedor de jenkins creado previamente y ejecutar el comando ls con el argumento -l
 docker exec jenkins_container ls -l
 
-![Imagen](imagenes/1.3 comando ls y l.jpeg)
+![Imagen](imagenes/1.3comando-ls-l.jpeg)
 
 
 ### Para ejecutar un shell interactivo en un contenedor de Docker especificado.
@@ -78,7 +78,7 @@ Ejecutar
 ```
 whoami
 ```
-![Imagen](imagenes/1.4 hola mundo.jpeg)
+![Imagen](imagenes/1.4hola-mundo.jpeg)
 
 **Si se visualiza el mensaje command not found, considerar**
 El problema se debe a que no se ha asignado un terminal de salida al contenedor al ejecutar el comando. Cuando usas docker exec -i jenkins-server /bin/bash en Windows, el comando se ejecuta pero no hay un terminal asignado para mostrar la salida del comando ls.
@@ -99,9 +99,9 @@ docker exec -it <nombre contenedor> <programa o comando>
 ### Ahora puedes acceder al contenedor de jenkins y obtener la contraseña ubicada en /var/jenkins_home/secrets/initialAdminPassword
 docker exec -it jenkins_container cat /var/jenkins_home/secrets/initialAdminPassword
 
-![Imagen](imagenes/1.5 contraseña jenkins.jpeg)
+![Imagen](imagenes/1.5contraseña-jenkins.jpeg)
 
-![Imagen](imagenes/1.6 jenkins unlock.jpeg)
+![Imagen](imagenes/1.6jenkins-unlock.jpeg)
 
 **Para este punto no es necesario continuar con la instalación de Jenkins**
 
